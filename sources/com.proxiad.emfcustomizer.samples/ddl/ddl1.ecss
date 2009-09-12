@@ -16,6 +16,6 @@ customize 'platform:/resource/com.proxiad.emfcustomizer.samples/ddl/ddl1.xmi'
 	type = myschema::number;
 }
 
-.ddl::Schema .ddl::Table .ddl::Column in myschema {
+.ddl::Schema .ddl::Table .ddl::Column in myschema::chevals {
 	name : "test";
 }
