@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF Customizer Engine
+Bundle-SymbolicName: com.proxiad.emfcustomizer.engine
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ProxiAD Group
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
