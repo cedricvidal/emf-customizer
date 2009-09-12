@@ -305,7 +305,7 @@ public class Queries {
 
 	public static Iterable<TypeRef> asList(TypeRef typeRef) {
 		Set<TypeRef> current = Collections.singleton(typeRef);
-		return (typeRef.getNext() == null) ? current : concat(asList(typeRef.getNext()), current);
+		return (typeRef.getNext() == null) ? current : concat(current, asList(typeRef.getNext()));
 	}
 
 	public static EClass type(TypeRef typeRef) {
