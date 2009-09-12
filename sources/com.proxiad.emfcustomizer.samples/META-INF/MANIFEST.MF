@@ -15,4 +15,4 @@ Require-Bundle: org.eclipse.emf.mwe.core;bundle-version="0.7.2",
  com.proxiad.emfcustomizer.engine;bundle-version="1.0.0",
  com.proxiad.emfcustomizer.stylesheet;bundle-version="1.0.0",
  com.proxiad.emfcustomizer.stylesheet.dsl;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
