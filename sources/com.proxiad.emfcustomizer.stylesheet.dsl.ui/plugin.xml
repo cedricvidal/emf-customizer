@@ -6,42 +6,42 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
+            class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="ecss"
-            id="com.proxiad.emfcustomizer.EmfCustomizer"
-            name="EmfCustomizer Editor">
+            id="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet"
+            name="Stylesheet Editor">
         </editor>
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
         <handler
-            class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclarationHandler"
+            class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclarationHandler"
             commandId="org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclaration">
             <activeWhen>
                 <reference
-                    definitionId="com.proxiad.emfcustomizer.EmfCustomizer.Editor.opened">
+                    definitionId="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
         <handler
-            class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.handler.ValidateActionHandler"
-            commandId="com.proxiad.emfcustomizer.EmfCustomizer.validate">
+            class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.handler.ValidateActionHandler"
+            commandId="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.validate">
          <activeWhen>
             <reference
-                    definitionId="com.proxiad.emfcustomizer.EmfCustomizer.Editor.opened">
+                    definitionId="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.Editor.opened">
             </reference>
          </activeWhen>
       </handler>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
-        <definition id="com.proxiad.emfcustomizer.EmfCustomizer.Editor.opened">
+        <definition id="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.Editor.opened">
             <and>
                 <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.core.editor.XtextEditor.languageName" 
-                        value="com.proxiad.emfcustomizer.EmfCustomizer" 
+                        value="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
@@ -50,38 +50,38 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
-            id="com.proxiad.emfcustomizer.EmfCustomizer"
-            name="EmfCustomizer"
+            class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
+            id="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet"
+            name="Stylesheet"
             category="org.eclipse.xtext.languages">
-            <keywordReference id="com.proxiad.emfcustomizer.ui.keyword_EmfCustomizer"/>
+            <keywordReference id="com.proxiad.emfcustomizer.stylesheet.dsl.ui.keyword_Stylesheet"/>
         </page>
         <page
-            category="com.proxiad.emfcustomizer.EmfCustomizer"
-            class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="com.proxiad.emfcustomizer.EmfCustomizer.coloring"
+            category="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet"
+            class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.coloring"
             name="Syntax Coloring">
-            <keywordReference id="com.proxiad.emfcustomizer.ui.keyword_EmfCustomizer"/>
+            <keywordReference id="com.proxiad.emfcustomizer.stylesheet.dsl.ui.keyword_Stylesheet"/>
         </page>
         <page
-            category="com.proxiad.emfcustomizer.EmfCustomizer"
-            class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
-            id="com.proxiad.emfcustomizer.EmfCustomizer.templates"
+            category="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet"
+            class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
+            id="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.templates"
             name="Templates">
-            <keywordReference id="com.proxiad.emfcustomizer.ui.keyword_EmfCustomizer"/>
+            <keywordReference id="com.proxiad.emfcustomizer.stylesheet.dsl.ui.keyword_Stylesheet"/>
         </page>
     </extension>
     <extension
         point="org.eclipse.ui.keywords">
         <keyword
-            id="com.proxiad.emfcustomizer.ui.keyword_EmfCustomizer"
-            label="EmfCustomizer"/>
+            id="com.proxiad.emfcustomizer.stylesheet.dsl.ui.keyword_Stylesheet"
+            label="Stylesheet"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
       <command
             description="Trigger expensive validation"
-            id="com.proxiad.emfcustomizer.EmfCustomizer.validate"
+            id="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.validate"
             name="Validate">
       </command>
     </extension>
@@ -89,12 +89,12 @@
         <menuContribution
             locationURI="popup:#TextEditorContext?after=group.open">
              <command
-                 commandId="com.proxiad.emfcustomizer.EmfCustomizer.validate"
+                 commandId="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.validate"
                  style="push"
                  tooltip="Trigger expensive validation">
             <visibleWhen checkEnabled="false">
                 <reference
-                    definitionId="com.proxiad.emfcustomizer.EmfCustomizer.Editor.opened">
+                    definitionId="com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet.Editor.opened">
                 </reference>
             </visibleWhen>
          </command>  
@@ -106,7 +106,7 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="com.proxiad.emfcustomizer.EmfCustomizerExecutableExtensionFactory:org.eclipse.xtext.resource.XtextResourceFactory"
+			class="com.proxiad.emfcustomizer.stylesheet.dsl.StylesheetExecutableExtensionFactory:org.eclipse.xtext.resource.XtextResourceFactory"
 			type="ecss">
 		</parser>
 	</extension>

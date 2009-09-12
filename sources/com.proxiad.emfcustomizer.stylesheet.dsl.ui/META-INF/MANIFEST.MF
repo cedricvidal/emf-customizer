@@ -17,4 +17,4 @@ Require-Bundle: com.proxiad.emfcustomizer.stylesheet.dsl;visibility:=reexport,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: com.proxiad.emfcustomizer.stylesheet.dsl.contentassist,
  com.proxiad.emfcustomizer.stylesheet.dsl.contentassist.antlr
-Bundle-Activator: com.proxiad.emfcustomizer.internal.EmfCustomizerActivator
+Bundle-Activator: com.proxiad.emfcustomizer.stylesheet.dsl.internal.StylesheetActivator

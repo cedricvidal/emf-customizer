@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.proxiad.emfcustomizer.stylesheet
-Bundle-SymbolicName: com.proxiad.emfcustomizer.stylesheet
+Bundle-SymbolicName: com.proxiad.emfcustomizer.stylesheet;singleton:=true
 Bundle-Version: 0.1.0
 Require-Bundle: org.eclipse.emf.ecore
 Export-Package: com.proxiad.emfcustomizer.ecss

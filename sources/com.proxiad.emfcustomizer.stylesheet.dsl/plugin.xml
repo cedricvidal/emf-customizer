@@ -3,15 +3,4 @@
 
 <plugin>
 
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://proxiad.com/EmfCustomizer/Stylesheet/1.0" 
-       class = "com.proxiad.emfcustomizer.ecss.EcssPackage"
-       genModel = "com/proxiad/emfcustomizer/EmfCustomizer.genmodel" /> 
-	
-  </extension>
-
-
-
-
 </plugin>

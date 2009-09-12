@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://proxiad.com/EmfCustomizer/Stylesheet/1.0" 
+       class = "com.proxiad.emfcustomizer.ecss.EcssPackage"
+       genModel = "model-gen/Stylesheet.genmodel" /> 
+	
+  </extension>
+
+</plugin>
