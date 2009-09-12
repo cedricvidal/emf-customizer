@@ -12,8 +12,10 @@
 
 package com.proxiad.emfcustomizer.stylesheet.dsl;
 
+import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.resource.XtextResource;
 
+import com.proxiad.emfcustomizer.stylesheet.dsl.conversion.StylesheetConverterService;
 import com.proxiad.emfcustomizer.stylesheet.dsl.scoping.StylesheetLazyLinkingResource;
 
 /**
@@ -24,6 +26,11 @@ public class StylesheetRuntimeModule extends com.proxiad.emfcustomizer.styleshee
 	@Override
 	public Class<? extends XtextResource> bindXtextResource() {
 		return StylesheetLazyLinkingResource.class;
+	}
+
+	@Override
+	public Class<? extends IValueConverterService> bindIValueConverterService() {
+		return StylesheetConverterService.class;
 	}
 
 }
