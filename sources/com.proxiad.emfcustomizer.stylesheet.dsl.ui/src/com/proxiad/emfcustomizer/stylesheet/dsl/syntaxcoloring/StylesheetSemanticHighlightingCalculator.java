@@ -38,16 +38,6 @@ import com.proxiad.emfcustomizer.ecss.TypeRef;
 public class StylesheetSemanticHighlightingCalculator implements
 		ISemanticHighlightingCalculator {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.xtext.ui.common.editor.syntaxcoloring.
-	 * ISemanticHighlightingCalculator
-	 * #provideHighlightingFor(org.eclipse.xtext.resource.XtextResource,
-	 * org.eclipse
-	 * .xtext.ui.common.editor.syntaxcoloring.IHighlightedPositionAcceptor)
-	 */
-	@Override
 	public void provideHighlightingFor(XtextResource resource,
 			IHighlightedPositionAcceptor acceptor) {
 		if (resource == null)

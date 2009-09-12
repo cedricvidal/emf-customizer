@@ -40,7 +40,6 @@ public class FqnResolver implements Function<EObject, String> {
 	 * a method providing the construction of a fqn (full qualified name) (i.e
 	 * parentFqn::fqn...)
 	 */
-	@Override
 	public String apply(EObject from) {
 		String fqn = nameResolver.apply(from);
 

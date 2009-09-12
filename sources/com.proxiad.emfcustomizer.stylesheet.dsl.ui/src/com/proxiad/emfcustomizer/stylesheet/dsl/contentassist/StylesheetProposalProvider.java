@@ -79,8 +79,6 @@ public class StylesheetProposalProvider extends AbstractStylesheetProposalProvid
 
 		lookupCrossReference(((CrossReference) assignment.getTerminal()),
 				context, acceptor, new Predicate<IScopedElement>() {
-
-					@Override
 					public boolean apply(IScopedElement input) {
 						boolean compatible = Constraints.isCompatible(
 								referenceDefinition, input.element());
@@ -101,8 +99,6 @@ public class StylesheetProposalProvider extends AbstractStylesheetProposalProvid
 		final Style style = (Style) model;
 		lookupCrossReference(((CrossReference) assignment.getTerminal()),
 				context, acceptor, new Predicate<IScopedElement>() {
-
-					@Override
 					public boolean apply(IScopedElement input) {
 
 						TypeRef currentTypeRef = currentTypeRef(style);

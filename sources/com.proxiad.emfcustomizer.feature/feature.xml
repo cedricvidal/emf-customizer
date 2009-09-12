@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.proxiad.emfcustomizer.feature"
-      label="EMF Customizer Feature"
+      label="EMF Customizer"
       version="1.0.0.qualifier"
       provider-name="ProxiAD Group">
 

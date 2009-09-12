@@ -83,7 +83,6 @@ public class EmfCustomizerComponent extends AbstractWorkflowComponent {
 	/**
 	 * Method to check some conditions before invoking the workflow engine
 	 */
-	@Override
 	public void checkConfiguration(Issues issues) {
 		// No Check performed before invokeInternal
 	}

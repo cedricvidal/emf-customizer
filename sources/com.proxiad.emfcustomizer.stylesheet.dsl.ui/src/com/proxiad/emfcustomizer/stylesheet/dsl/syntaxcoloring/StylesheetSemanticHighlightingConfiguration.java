@@ -34,15 +34,6 @@ public class StylesheetSemanticHighlightingConfiguration implements
 	public static final String MODELFQNINMODELREF = "modelFqnInModelRef";
 	public static final String ID = "id";
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.xtext.ui.common.editor.syntaxcoloring.
-	 * ISemanticHighlightingConfiguration
-	 * #configure(org.eclipse.xtext.ui.common.editor
-	 * .syntaxcoloring.IHighlightingConfigurationAcceptor)
-	 */
-	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		acceptor.acceptDefaultHighlighting(TYPEREF, "TypeRef",
 				typeRefTextStyle());

@@ -44,8 +44,6 @@ public class Iterables2 {
 				final Set<T> set = new HashSet<T>();
 
 				return Iterators.filter(input.iterator(), new Predicate<T>() {
-
-					@Override
 					public boolean apply(T input) {
 						return set.add(input);
 					}

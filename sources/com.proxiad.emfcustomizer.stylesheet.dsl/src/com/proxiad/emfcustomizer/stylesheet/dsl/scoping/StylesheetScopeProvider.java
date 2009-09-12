@@ -284,7 +284,6 @@ public class StylesheetScopeProvider extends
 		Iterable<EClass> eClassOnly = transform(eReferenceOnly,
 				new Function<EReference, EClass>() {
 
-					@Override
 					public EClass apply(EReference from) {
 						return from.getEReferenceType();
 					}
@@ -309,7 +308,6 @@ public class StylesheetScopeProvider extends
 		Iterable<EStructuralFeature> notManyFeatures = filter(features,
 				new Predicate<EStructuralFeature>() {
 
-					@Override
 					public boolean apply(EStructuralFeature input) {
 						return !input.isMany();
 					}
@@ -347,7 +345,6 @@ public class StylesheetScopeProvider extends
 		Iterable<IScopedElement> transformed = transform(eobjects,
 				new Function<EObject, IScopedElement>() {
 
-					@Override
 					public IScopedElement apply(EObject from) {
 						return ScopedElement.create(nameFunc.apply(from), from);
 					}

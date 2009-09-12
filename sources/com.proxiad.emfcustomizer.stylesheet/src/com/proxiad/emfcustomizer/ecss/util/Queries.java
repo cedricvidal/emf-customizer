@@ -64,7 +64,6 @@ public class Queries {
 	public static Iterable<EClass> metaClasses(Iterable<EObject> eobjects) {
 		Iterable<EClass> metaClasses = transform(eobjects,
 				new Function<EObject, EClass>() {
-					@Override
 					public EClass apply(EObject from) {
 						return from.eClass();
 					}
@@ -109,7 +108,6 @@ public class Queries {
 		Iterable<Pair<EObject, String>> allUris = transform(eobjects,
 				new Function<EObject, Pair<EObject, String>>() {
 
-					@Override
 					public Pair<EObject, String> apply(EObject object) {
 						String uri = importUriResolver.apply(object);
 						return Tuples.create(object, uri);
@@ -121,8 +119,6 @@ public class Queries {
 		 */
 		Iterable<Pair<EObject, String>> uris = filter(allUris,
 				new Predicate<Pair<EObject, String>>() {
-
-					@Override
 					public boolean apply(Pair<EObject, String> input) {
 						return input.getSecond() != null;
 					}
@@ -138,7 +134,6 @@ public class Queries {
 		Iterable<Pair<EObject, String>> validUris = filter(uniqueUris,
 				new Predicate<Pair<EObject, String>>() {
 
-					@Override
 					public boolean apply(Pair<EObject, String> input) {
 						boolean isValid = ImportUriUtil.isValid(input
 								.getFirst(), input.getSecond());
@@ -153,8 +148,6 @@ public class Queries {
 		 */
 		Iterable<String> onlyUris = transform(validUris,
 				new Function<Pair<EObject, String>, String>() {
-
-					@Override
 					public String apply(Pair<EObject, String> input) {
 						return input.getSecond();
 					}
@@ -175,7 +168,6 @@ public class Queries {
 	public static Iterable<Resource> resources(Iterable<String> uris,
 			final Resource context) {
 		return transform(uris, new Function<String, Resource>() {
-			@Override
 			public Resource apply(String uri) {
 				return ImportUriUtil.getResource(context, uri);
 			}
@@ -194,7 +186,6 @@ public class Queries {
 	public static Iterable<EObject> content(Iterable<Resource> resources) {
 		return concat(transform(resources,
 				new Function<Resource, Iterable<EObject>>() {
-					@Override
 					public Iterable<EObject> apply(Resource resource) {
 						return content(resource);
 					}
@@ -209,7 +200,6 @@ public class Queries {
 	public static Iterable<EObject> content(final Resource resource) {
 		return new Iterable<EObject>() {
 
-			@Override
 			public Iterator<EObject> iterator() {
 				return EcoreUtil.getAllContents(resource, true);
 			}
@@ -253,7 +243,7 @@ public class Queries {
 	 */
 	public static Iterable<EClass> referenceType(Iterable<EReference> refs) {
 		return transform(refs, new Function<EReference, EClass>() {
-			@Override
+
 			public EClass apply(EReference ref) {
 				return ref.getEReferenceType();
 			}
@@ -294,7 +284,6 @@ public class Queries {
 		Iterable<EClass> transform = concat(transform(classes,
 				new Function<EClass, Iterable<EClass>>() {
 
-					@Override
 					public Iterable<EClass> apply(EClass from) {
 						return allContainedClasses(from);
 					}
