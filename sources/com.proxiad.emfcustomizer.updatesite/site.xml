@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.proxiad.emfcustomizer.feature_1.0.0.200909121954.jar" id="com.proxiad.emfcustomizer.feature" version="1.0.0.200909121954">
+      <category name="proxiad"/>
+   </feature>
+   <category-def name="proxiad" label="ProxiAD Group">
+      <description>
+         ProxiAD Group
+http://www.proxiad.com/
+      </description>
+   </category-def>
+</site>
