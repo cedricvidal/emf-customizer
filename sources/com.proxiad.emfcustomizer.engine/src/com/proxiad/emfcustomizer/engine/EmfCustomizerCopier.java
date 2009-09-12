@@ -61,15 +61,6 @@ public class EmfCustomizerCopier extends Copier {
 	private static FqnResolver FQN_RESOLVER = new FqnResolver(
 			SimpleAttributeResolver.NAME_RESOLVER);
 
-	/**
-	 * Static Variables providing acces to (@see
-	 * /com.proxiad.emfcustomizer/src/com/proxiad/emfcustomizer/Extensions.ext)
-	 * this file contains the Xtend/Xpand fonctions from EMF Styling legacy
-	 */
-	private static final String EXTENSIONS = "com::proxiad::emfcustomizer::Extensions";
-	private static final String TYPE_EXTENSION_NAME = "type";
-	private static final String ID_EXTENSION_NAME = "id";
-
 	private Stylesheet css = null;
 	private Map<String, Element> elementMap;
 	private String modelPath;
