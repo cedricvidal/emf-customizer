@@ -12,11 +12,13 @@
 
 package com.proxiad.emfcustomizer.stylesheet.dsl;
 
+import org.eclipse.xtext.ui.common.editor.outline.transformer.ISemanticModelTransformer;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
+import com.proxiad.emfcustomizer.stylesheet.dsl.outline.StylesheetTransformer;
 import com.proxiad.emfcustomizer.stylesheet.dsl.syntaxcoloring.StylesheetAntlrTokenToAttributeIdMapper;
 import com.proxiad.emfcustomizer.stylesheet.dsl.syntaxcoloring.StylesheetLexicalHighlightingConfiguration;
 import com.proxiad.emfcustomizer.stylesheet.dsl.syntaxcoloring.StylesheetSemanticHighlightingCalculator;
@@ -61,6 +63,14 @@ public class StylesheetUiModule extends com.proxiad.emfcustomizer.stylesheet.dsl
 	 */
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
 		return StylesheetSemanticHighlightingCalculator.class;
+	}
+
+	/**
+	 * Module for outline customization in the editor
+	 */
+	@Override
+	public Class<? extends ISemanticModelTransformer> bindISemanticModelTransformer() {
+		return StylesheetTransformer.class;
 	}
 
 }
