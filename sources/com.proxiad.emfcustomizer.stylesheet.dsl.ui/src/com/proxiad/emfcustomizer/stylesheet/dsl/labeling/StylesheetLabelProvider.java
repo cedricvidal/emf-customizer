@@ -31,6 +31,8 @@ import com.proxiad.emfcustomizer.ecss.ValueType;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
+ * 
+ * @author <a href="mailto:n.phung@proxiad.com">Nicolas Phung, ProxiAD Group</a>
  */
 public class StylesheetLabelProvider extends DefaultLabelProvider {
 
