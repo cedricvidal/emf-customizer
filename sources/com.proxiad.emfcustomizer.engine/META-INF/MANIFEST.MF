@@ -5,3 +5,14 @@ Bundle-SymbolicName: com.proxiad.emfcustomizer.engine
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: ProxiAD Group
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.proxiad.emfcustomizer.stylesheet;bundle-version="1.0.0",
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.4.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xpand,
+ org.eclipse.xtend,
+ org.eclipse.emf.mwe.core,
+ org.eclipse.emf.mwe.utils,
+ org.eclipse.xtend.typesystem.emf,
+ org.eclipse.xtext;bundle-version="0.7.2",
+ com.proxiad.emfcustomizer.stylesheet.dsl;bundle-version="1.0.0"

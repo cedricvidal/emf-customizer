@@ -5,4 +5,9 @@ Bundle-SymbolicName: com.proxiad.emfcustomizer.stylesheet;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: ProxiAD Group
 Require-Bundle: org.eclipse.emf.ecore
-Export-Package: com.proxiad.emfcustomizer.ecss
+Export-Package: com.proxiad.emfcustomizer.ecss,
+ com.proxiad.emfcustomizer.ecss.util
+Import-Package: org.eclipse.xtext.scoping.impl,
+ org.eclipse.xtext.util,
+ com.google.common.collect,
+ com.google.common.base
