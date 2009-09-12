@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0
 Bundle-SymbolicName: com.proxiad.emfcustomizer.stylesheet.dsl; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
-Require-Bundle:  org.eclipse.xtext,
+Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.generator;resolution:=optional,
  de.itemis.xtext.antlr;resolution:=optional,
  org.apache.commons.logging;resolution:=optional,
@@ -15,5 +15,15 @@ Require-Bundle:  org.eclipse.xtext,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe.core;resolution:=optional,
  com.ibm.icu;resolution:=optional,
- org.eclipse.xtext.xtend;resolution:=optional
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ com.proxiad.emfcustomizer.stylesheet;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.proxiad.emfcustomizer.stylesheet.dsl,
+ com.proxiad.emfcustomizer.stylesheet.dsl.parseTreeConstruction,
+ com.proxiad.emfcustomizer.stylesheet.dsl.parser.antlr,
+ com.proxiad.emfcustomizer.stylesheet.dsl.services,
+ com.proxiad.emfcustomizer.stylesheet.dsl.validation

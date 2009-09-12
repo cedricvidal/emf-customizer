@@ -7,6 +7,8 @@
 	
 	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="${runtimeProject}/src-gen"/>
 	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="${runtimeProject}.ui/src-gen"/>
+	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="../${modelProjectName}/src-gen"/>
+	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="../${modelProjectName}/model-gen"/>
 	
 	<component class="org.eclipse.xtext.generator.Generator">
 		<pathRtProject value="${runtimeProject}"/>
@@ -19,7 +21,12 @@
 			<fragment class="org.eclipse.xtext.generator.grammarAccess.GrammarAccessFragment"/>
 			
 			<!-- generates Java API for the generated EPackages -->
-			<fragment class="org.eclipse.xtext.generator.ecore.EcoreGeneratorFragment"/>
+			<fragment class="com.proxiad.emfcustomizer.stylesheet.dsl.generator.StylesheetEcoreGeneratorFragment"
+				javaModelDirectory="../${modelProjectName}/src-gen"
+				modelPluginID="${modelProjectName}"
+				basePackage="${basePackage}"
+				xmiModelDirectory="../${modelProjectName}/model-gen"
+				/>
 			
 			<!-- the serialization component -->
 			<fragment class="org.eclipse.xtext.generator.parseTreeConstructor.ParseTreeConstructorFragment"/>
@@ -37,7 +44,8 @@
 	
 			
 			<!-- java-based API for validation -->
-			<fragment class="org.eclipse.xtext.generator.validation.JavaValidatorFragment">
+			<fragment class="org.eclipse.xtext.generator.validation.JavaValidatorFragment"
+				basePackage="${basePackage}">
                 <composedCheck value="org.eclipse.xtext.validation.ImportUriValidator"/>
             </fragment>
 			

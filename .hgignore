@@ -23,4 +23,5 @@ bin
 target
 
 # Code generation output directories
-src-gen
+*-gen
+*_gen

@@ -1,25 +1,73 @@
+/*******************************************************************************
+ * Copyright (c) 2008-2009 Cedric Vidal and ProxiAD Group
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Cedric Vidal - original idea, initial contribution and API
+ *     ProxiAD Group - 1.0 release
+ *******************************************************************************/
+
 grammar com.proxiad.emfcustomizer.stylesheet.dsl.Stylesheet with org.eclipse.xtext.common.Terminals
 
-generate stylesheet "http://www.proxiad.com/emfcustomizer/stylesheet/dsl/Stylesheet"
+generate ecss "http://www.proxiad.com/EmfCustomizer/Stylesheet/1.0"
 
-Model :
-	(imports+=Import)*
-	(elements+=Type)*;
-	
-Import :
-	'import' importURI=STRING;
-	
-Type:
-	SimpleType | Entity;
-	
-SimpleType:
-	'type' name=ID;
-	
-Entity :
-	'entity' name=ID ('extends' extends=[Entity])? '{'
-		properties+=Property*
-	'}';
+import 'http://www.eclipse.org/emf/2002/Ecore' as ecore
 
-Property:
-	'property' name=ID ':' type=[Type] (many?='[]')?;
+Stylesheet:
+  customize=Customize (loadedModels+=ModelLoad)* ((styles+=Style)|(elements+=Element))*;
+
+Customize:
+  'customize' importURI=STRING;
+
+ModelLoad:
+  'load' loadURI=STRING;
+
+Style:
+  ('for')? typeRef=TypeRef ('in' modelRef=[ecore::EObject|ModelFqn])? '{'
+    (definitions+=Definition ';')*
+  '}';
+
+Element:
+  ('element'|'#') modelRef=[ecore::EObject|ModelFqn] '{'
+    (definitions+=Definition ';')*
+  '}';
+
+TypeRef:
+  '.' ref=[ecore::EClass|ModelFqn] (next=TypeRef)?;
+
+Definition:
+  AttributeDefinition|ReferenceDefinition;
+
+AttributeDefinition:
+  attribute=[ecore::EStructuralFeature] ':' (value=ValueType);
+
+ValueType:
+	(StringValue|IntValue|BooleanValue|FloatValue);
+
+StringValue :
+	value=STRING;
+
+IntValue :
+	value=INT;
+
+BooleanValue:
+	value=BOOLEAN;
 	
+FloatValue:
+	value=FLOAT;
+
+terminal FLOAT returns ecore::EFloat: 
+	('0'..'9')+'.'('0'..'9')+;
+
+terminal BOOLEAN returns ecore::EBoolean: 
+	'true'|'false';
+
+ReferenceDefinition:
+  attribute=[ecore::EStructuralFeature] '=' modelRef=[ecore::EObject|ModelFqn];
+
+ModelFqn:
+  ID ('::' ID)*;
+

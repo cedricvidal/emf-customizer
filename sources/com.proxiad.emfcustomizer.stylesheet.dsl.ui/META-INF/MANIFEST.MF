@@ -6,10 +6,15 @@ Bundle-Version: 1.0.0
 Bundle-SymbolicName: com.proxiad.emfcustomizer.stylesheet.dsl.ui; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
-Require-Bundle:  com.proxiad.emfcustomizer.stylesheet.dsl;visibility:=reexport,
+Require-Bundle: com.proxiad.emfcustomizer.stylesheet.dsl;visibility:=reexport,
  org.eclipse.xtext.ui.core,
  org.eclipse.xtext.ui.common,
  org.eclipse.xtext.log4j;bundle-version="1.2.15",
  org.eclipse.ui.editors;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0"
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.proxiad.emfcustomizer.stylesheet.dsl.contentassist,
+ com.proxiad.emfcustomizer.stylesheet.dsl.contentassist.antlr
+Bundle-Activator: com.proxiad.emfcustomizer.internal.EmfCustomizerActivator
