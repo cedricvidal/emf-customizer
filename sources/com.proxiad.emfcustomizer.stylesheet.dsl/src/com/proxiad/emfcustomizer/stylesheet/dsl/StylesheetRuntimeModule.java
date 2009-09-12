@@ -13,6 +13,7 @@
 package com.proxiad.emfcustomizer.stylesheet.dsl;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
+import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
@@ -20,6 +21,7 @@ import com.google.inject.Binder;
 import com.google.inject.name.Names;
 import com.proxiad.emfcustomizer.ecss.EcssPackage;
 import com.proxiad.emfcustomizer.stylesheet.dsl.conversion.StylesheetConverterService;
+import com.proxiad.emfcustomizer.stylesheet.dsl.formatting.StylesheetFormatter;
 import com.proxiad.emfcustomizer.stylesheet.dsl.scoping.StylesheetLazyLinkingResource;
 
 /**
@@ -35,6 +37,11 @@ public class StylesheetRuntimeModule extends com.proxiad.emfcustomizer.styleshee
 	@Override
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return StylesheetConverterService.class;
+	}
+
+	@Override
+	public Class<? extends IFormatter> bindIFormatter() {
+		return StylesheetFormatter.class;
 	}
 
 	/**
