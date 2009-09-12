@@ -12,9 +12,18 @@
 
 package com.proxiad.emfcustomizer.stylesheet.dsl;
 
+import org.eclipse.xtext.resource.XtextResource;
+
+import com.proxiad.emfcustomizer.stylesheet.dsl.scoping.StylesheetLazyLinkingResource;
+
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class StylesheetRuntimeModule extends com.proxiad.emfcustomizer.stylesheet.dsl.AbstractStylesheetRuntimeModule {
+
+	@Override
+	public Class<? extends XtextResource> bindXtextResource() {
+		return StylesheetLazyLinkingResource.class;
+	}
 
 }
