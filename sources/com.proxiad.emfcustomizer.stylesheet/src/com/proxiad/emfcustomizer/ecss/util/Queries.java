@@ -15,9 +15,11 @@ package com.proxiad.emfcustomizer.ecss.util;
 import static com.google.common.collect.Iterables.concat;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.transform;
+import static com.google.common.collect.Iterables.getLast;
 import static com.proxiad.emfcustomizer.ecss.util.Iterables2.unique;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -299,6 +301,15 @@ public class Queries {
 
 				}));
 		return concat(classes, transform);
+	}
+
+	public static Iterable<TypeRef> asList(TypeRef typeRef) {
+		Set<TypeRef> current = Collections.singleton(typeRef);
+		return (typeRef.getNext() == null) ? current : concat(asList(typeRef.getNext()), current);
+	}
+
+	public static EClass type(TypeRef typeRef) {
+		return getLast(asList(typeRef)).getRef();
 	}
 
 }

@@ -21,12 +21,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
-import org.eclipse.xtend.XtendFacade;
-import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 import org.eclipse.xtext.linking.impl.SimpleAttributeResolver;
 
 import com.proxiad.emfcustomizer.ecss.AttributeDefinition;
@@ -73,7 +70,7 @@ public class EmfCustomizerCopier extends Copier {
 	private Stylesheet css = null;
 	private Map<String, Element> elementMap;
 	private String modelPath;
-	private XtendFacade xtend;
+
 	private HashMap<String, Style> stylesMap;
 
 	public String getModelPath() {
@@ -150,7 +147,7 @@ public class EmfCustomizerCopier extends Copier {
 				String objectId = id(object);
 				Style style = stylesMap.get(classId);
 				if (style != null) {
-					String modelRefId = FQN_RESOLVER.apply(style.getModelRef());
+					String modelRefId = fqn(style.getModelRef());
 					if (modelRefId == null || objectId.startsWith(modelRefId)) {
 						Object newValue = getDefinitionValue(style, feature);
 						if (newValue != null) {
@@ -163,6 +160,10 @@ public class EmfCustomizerCopier extends Copier {
 
 		}
 		return copied;
+	}
+
+	private String fqn(EObject object) {
+		return FQN_RESOLVER.apply(object);
 	}
 
 	/**
@@ -195,23 +196,19 @@ public class EmfCustomizerCopier extends Copier {
 	}
 
 	/**
-	 * a Method calling Xtend
-	 * 
 	 * @param object
 	 * @return un String
 	 */
 	protected String id(EObject object) {
-		return (String) xtend.call(ID_EXTENSION_NAME, new Object[] { object });
+		return fqn(object);
 	}
 
 	/**
-	 * a Method calling Xtend
-	 * 
 	 * @param style
 	 * @return une EClass
 	 */
 	protected EClass type(Style style) {
-		return (EClass) xtend.call(TYPE_EXTENSION_NAME, new Object[] { style });
+		return Queries.type(style.getTypeRef());
 	}
 
 	/**
@@ -220,11 +217,6 @@ public class EmfCustomizerCopier extends Copier {
 	 * from the XText (0.7.2) grammar. Method which calls Xtend.
 	 */
 	public void initCss() {
-		xtend = XtendFacade.create(EXTENSIONS);
-		EmfMetaModel emf = new EmfMetaModel(EcorePackage.eINSTANCE);
-		xtend.registerMetaModel(emf);
-		EmfMetaModel emfStyling = new EmfMetaModel(EcssPackage.eINSTANCE);
-		xtend.registerMetaModel(emfStyling);
 
 		Customize customize = findCustomize(css);
 		Collection<Style> styles = findStyles(css);
