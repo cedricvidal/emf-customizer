@@ -12,8 +12,11 @@
 
 package com.proxiad.emfcustomizer.engine;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -71,7 +74,7 @@ public class EmfCustomizerCopier extends Copier {
 	private Map<String, Element> elementMap;
 	private String modelPath;
 
-	private HashMap<String, Style> stylesMap;
+	private HashMap<String, List<Style>> stylesMap;
 
 	public String getModelPath() {
 		return modelPath;
@@ -145,14 +148,18 @@ public class EmfCustomizerCopier extends Copier {
 			if (!copied) {
 				String classId = id(object.eClass());
 				String objectId = id(object);
-				Style style = stylesMap.get(classId);
-				if (style != null) {
-					String modelRefId = fqn(style.getModelRef());
-					if (modelRefId == null || objectId.startsWith(modelRefId)) {
-						Object newValue = getDefinitionValue(style, feature);
-						if (newValue != null) {
-							copyEObject.eSet(getTarget(feature), newValue);
-							copied = true;
+				List<Style> styles = stylesMap.get(classId);
+				if (styles != null) {
+					for (Iterator<Style> i = styles.iterator(); i
+							.hasNext() && !copied;) {
+						Style style = i.next();
+						String modelRefId = fqn(style.getModelRef());
+						if (modelRefId == null || objectId.startsWith(modelRefId)) {
+							Object newValue = getDefinitionValue(style, feature);
+							if (newValue != null) {
+								copyEObject.eSet(getTarget(feature), newValue);
+								copied = true;
+							}
 						}
 					}
 				}
@@ -219,11 +226,17 @@ public class EmfCustomizerCopier extends Copier {
 	public void initCss() {
 
 		Customize customize = findCustomize(css);
-		Collection<Style> styles = findStyles(css);
-		stylesMap = new HashMap<String, Style>();
-		for (Style style : styles) {
+		Collection<Style> cssStyles = findStyles(css);
+		stylesMap = new HashMap<String, List<Style>>();
+		for (Style style : cssStyles) {
 			EClass styleType = type(style);
-			stylesMap.put(id(styleType), style);
+			String id = id(styleType);
+			List<Style> styles = stylesMap.get(id);
+			if(styles == null) {
+				styles = new ArrayList<Style>();
+			}
+			styles.add(style);
+			stylesMap.put(id, styles);
 		}
 
 		Collection<Element> elements = findElements(css);

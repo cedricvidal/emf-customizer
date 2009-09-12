@@ -4,7 +4,9 @@
     <column name="test" type="//@types.0"/>
   </table>
   <table name="joueurs">
-    <column name="name" type="//@types.0"/>
+    <column name="nom">
+      <type href="platform:/resource/com.proxiad.emfcustomizer.samples/ddl/ddl1.xmi#//@types.1"/>
+    </column>
   </table>
   <types name="string"/>
   <types name="number"/>
