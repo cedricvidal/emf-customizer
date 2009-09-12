@@ -1,0 +1,21 @@
+customize 'platform:/resource/com.proxiad.emfcustomizer.samples/ddl/ddl1.xmi'
+
+#myschema {
+	name : "poloteam";
+	version : 2;
+	conformite : false;
+	prix : 2.5;
+}
+
+#myschema::chevals {
+	name : "chevaux";
+}
+
+.ddl::Column in myschema::joueurs {
+	name : "nom";
+	type = myschema::number;
+}
+
+.ddl::Schema .ddl::Table .ddl::Column in myschema {
+	name : "test";
+}

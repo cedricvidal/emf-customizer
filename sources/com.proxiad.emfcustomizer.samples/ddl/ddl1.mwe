@@ -1,0 +1,7 @@
+<workflow>
+	<property name='modelName' value='ddl/ddl1'/>
+	<component file='StylerHelper.mwe'>
+		<inputModelFile value='${modelName}.ecss'/>
+		<outputModelFile value='${modelName}-customized.xmi'/>
+	</component>
+</workflow>
