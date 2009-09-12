@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This configuration file was written by the eclipse-cs plugin configuration editor
+-->
+<!--
+    Checkstyle-Configuration: EMF Customizer Checkstyle
+    Description: none
+-->
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+    <property name="severity" value="error"/>
+    <module name="TreeWalker">
+        <module name="Header">
+            <property name="header" value="/*******************************************************************************\n * Copyright (c) 2008-2009 Cedric Vidal and ProxiAD Group\n * All rights reserved. This program and the accompanying materials\n * are made available under the terms of the Eclipse Public License v1.0\n * which accompanies this distribution, and is available at\n * http://www.eclipse.org/legal/epl-v10.html\n *\n * Contributors:\n *     Cedric Vidal - original idea, initial contribution and API\n *     ProxiAD Group - 1.0 release\n *******************************************************************************/\n"/>
+        </module>
+    </module>
+</module>
