@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.proxiad.emfcustomizer.feature"
-      label="EMF Customizer Feature"
+      id="com.proxiad.emfcustomizer.samples.feature"
+      label="EMF Customizer Samples"
       version="1.0.0.qualifier"
       provider-name="ProxiAD Group">
 
    <description>
       EMF Customizer is a model (Ecore based) customization/styling/refining CSS like textual DSL targeting MDSD tool chains end users.
 
-The motivation is to address the problem of customizing intermediate models in a Eclipse EMF based MDSD toolchain such as Acceleo or openArchitectureWare in order to be able to do incremental model generation while preserving user model refinements. Indeed, currently, there are solutions to customize generated text with user code in model to text (M2T) transformations using either protected code regions or inheritance. But, as of today, there doesn&apos;t seem to be any such equivalent for customizing generated models in model to model (M2M) transformations which is both freely available, simple to use and aimed at MDSD end users.
+This features provides a sample project which contains sample use cases.
    </description>
 
    <copyright>
@@ -219,28 +219,7 @@ litigation.
    </license>
 
    <plugin
-         id="com.proxiad.emfcustomizer.stylesheet"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.proxiad.emfcustomizer.engine"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.proxiad.emfcustomizer.stylesheet.dsl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.proxiad.emfcustomizer.stylesheet.dsl.ui"
+         id="com.proxiad.emfcustomizer.samples"
          download-size="0"
          install-size="0"
          version="0.0.0"

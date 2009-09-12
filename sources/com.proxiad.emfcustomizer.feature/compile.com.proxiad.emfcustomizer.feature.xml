@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Compile com.proxiad.emfcustomizer.feature" default="main">
 	<target name="main">
+		<ant antfile="build.xml" dir="../com.proxiad.emfcustomizer.stylesheet" target="build.jars"/>
+		<ant antfile="build.xml" dir="../com.proxiad.emfcustomizer.stylesheet.dsl" target="build.jars"/>
+		<ant antfile="build.xml" dir="../com.proxiad.emfcustomizer.stylesheet.dsl.ui" target="build.jars"/>
+		<ant antfile="build.xml" dir="../com.proxiad.emfcustomizer.engine" target="build.jars"/>
 	</target>
 </project>
