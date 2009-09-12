@@ -25,3 +25,6 @@ target
 # Code generation output directories
 *-gen
 *_gen
+
+# Windows thumbnail db
+Thumbs.db
