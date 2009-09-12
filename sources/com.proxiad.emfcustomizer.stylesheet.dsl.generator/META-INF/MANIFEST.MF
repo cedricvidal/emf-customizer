@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.proxiad.emfcustomizer.stylesheet.dsl.generator
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
+Bundle-Name: EMF Customizer Stylesheet Textual DSL Generator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ProxiAD Group
 Bundle-SymbolicName: com.proxiad.emfcustomizer.stylesheet.dsl.generator; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
