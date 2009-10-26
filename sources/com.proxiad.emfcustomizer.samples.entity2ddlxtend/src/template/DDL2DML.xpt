@@ -1,11 +1,11 @@
 «IMPORT ddl»
 
 «DEFINE main FOR Schema»
-«FILE name+"-dml.sql"»
+«FILE name+"-dml.sql"-»
 «EXPAND selectAll FOREACH table»
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE selectAll FOR Table»
+«DEFINE selectAll FOR Table-»
 SELECT * FROM «name»;
 «ENDDEFINE»
