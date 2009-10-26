@@ -13,6 +13,13 @@ schema( Domain d ) :
 table( Entity e) :
 	let t = new Table :
 	t.setName(e.name.plural().toUpperCase()) ->
+	t.column.addAll(e.features.column()) ->
+	t
+	;
+
+column( Feature f ) :
+	let t = new Table :
+	t.setName(f.name) ->
 	t
 	;
 
