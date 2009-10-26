@@ -46,18 +46,18 @@
 
 	<component file='com/proxiad/emfcustomizer/engine/Engine.mwe'>
 		<modelFile value='${ecssFile}'/>
-		<outputSlot value='customized'/>
+		<outputSlot value='transformed'/>
 	</component>
 
 	<component class='org.eclipse.emf.mwe.utils.Writer'>
-		<modelSlot value='customized'/>
+		<modelSlot value='transformed'/>
 		<uri value='${customizedFile}'/>
 	</component>
 
 	<component class="org.eclipse.xpand2.Generator">
 		<metaModel idRef="ddl"/>
 		<expand
-			value="template::DDL2SQL::main FOR customized" />
+			value="template::DDL2SQL::main FOR transformed" />
 		<outlet path="${src-gen}" >
 		</outlet>
 	</component>
@@ -65,7 +65,7 @@
 	<component class="org.eclipse.xpand2.Generator">
 		<metaModel idRef="ddl"/>
 		<expand
-			value="template::DDL2DML::main FOR customized" />
+			value="template::DDL2DML::main FOR transformed" />
 		<outlet path="${src-gen}" >
 		</outlet>
 	</component>
