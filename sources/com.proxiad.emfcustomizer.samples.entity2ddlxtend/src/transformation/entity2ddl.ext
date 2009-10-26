@@ -1,0 +1,21 @@
+import ddl;
+import entity;
+
+extension entity::Extensions reexport;
+
+schema( Domain d ) :
+	let s = new Schema :
+	s.setName(d.name) ->
+	s.table.addAll(d.entities().table()) ->
+	s
+	;
+
+table( Entity e) :
+	let t = new Table :
+	t.setName(e.name.plural().toUpperCase()) ->
+	t
+	;
+
+plural( String s ) :
+	s + "s"
+	;

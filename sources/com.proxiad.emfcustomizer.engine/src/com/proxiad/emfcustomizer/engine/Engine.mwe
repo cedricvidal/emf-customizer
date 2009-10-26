@@ -6,6 +6,6 @@
 	</component>
 	<component class='com.proxiad.emfcustomizer.engine.EmfCustomizerComponent'>
 		<cssSlot value='cssModel'/>
-		<outputSlot value='outputSlot'/>
+		<outputSlot value='${outputSlot}'/>
 	</component>
 </workflow>

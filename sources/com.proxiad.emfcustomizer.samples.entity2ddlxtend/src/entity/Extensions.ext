@@ -1,0 +1,7 @@
+import entity;
+
+Domain domain(Type this) :
+	eContainer;
+	
+List[Entity] entities(Domain this) :
+	types.typeSelect(Entity);

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<workflow>
+
+	<property name="model" value="com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/Model.xmi" />
+	<property name="transformedFile" value="src-gen/Transformed.xmi" />
+	<property name="customizedFile" value="src-gen/Customized.xmi" />
+	<property name="ecssFile" value="src/ddl.ecss" />
+	<property name="src-gen" value="src-gen" />
+
+	<!-- set up EMF for standalone execution -->
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
+		<platformUri value=".."/>
+	</bean>
+
+	<!-- load model and store it in slot 'model' -->
+	<component class="org.eclipse.emf.mwe.utils.Reader">
+		<uri value="platform:/resource/${model}" />
+		<modelSlot value="model" />
+	</component>
+
+	<!-- check model -->
+	<component class="org.eclipse.xtend.check.CheckComponent">
+		<metaModel id="entity"
+			class="org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel"/>
+		<checkFile value="entity::Checks" />
+		<emfAllChildrenSlot value="model" />
+	</component>
+
+	<!--  generate code -->
+	<!--component class="org.eclipse.xpand2.Generator">
+		<metaModel idRef="entity"/>
+		<expand
+			value="template::Template::main FOR model" />
+		<outlet path="${src-gen}" >
+			<postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
+		</outlet>
+	</component-->
+
+	<component class="org.eclipse.xtend.XtendComponent">
+		<metaModel class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
+			<metaModelFile value="ddl/ddl.ecore"/>
+		</metaModel>
+		<metaModel idRef="entity"/>
+		<invoke value="transformation::entity2ddl::schema(model)"/>
+		<outputSlot value="transformed"/>
+	</component>
+
+	<component class='org.eclipse.emf.mwe.utils.Writer'>
+		<modelSlot value='transformed'/>
+		<uri value='${transformedFile}'/>
+	</component>
+
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="..">
+		<registerGeneratedEPackage value="com.proxiad.emfcustomizer.ecss.EcssPackage"/>
+	</bean>
+
+	<component file='com/proxiad/emfcustomizer/engine/Engine.mwe'>
+		<modelFile value='${ecssFile}'/>
+		<outputSlot value='customized'/>
+	</component>
+
+	<component class='org.eclipse.emf.mwe.utils.Writer'>
+		<modelSlot value='customized'/>
+		<uri value='${customizedFile}'/>
+	</component>
+
+</workflow>

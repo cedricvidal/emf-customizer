@@ -1,0 +1,13 @@
+<workflow>
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="..">
+		<registerGeneratedEPackage value="com.proxiad.emfcustomizer.ecss.EcssPackage"/>
+	</bean>
+	<component file='com/proxiad/emfcustomizer/engine/Engine.mwe'>
+		<modelFile value='${inputModelFile}'/>
+		<outputSlot value='outputSlot'/>
+	</component>
+	<component class='org.eclipse.emf.mwe.utils.Writer'>
+		<uri value='${outputModelFile}'/>
+		<modelSlot value='outputSlot'/>
+	</component>
+</workflow>
