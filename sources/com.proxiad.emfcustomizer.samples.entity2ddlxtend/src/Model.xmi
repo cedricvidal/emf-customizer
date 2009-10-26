@@ -15,4 +15,8 @@
   <types xsi:type="entity:Entity" name="Horse">
     <features name="name" type="//@types.0"/>
   </types>
+  <types xsi:type="entity:Entity" name="Staple">
+    <features name="name" type="//@types.0"/>
+    <features name="area" type="//@types.1"/>
+  </types>
 </entity:Domain>

@@ -5,7 +5,7 @@ extension entity::Extensions reexport;
 
 schema( Domain d ) :
 	let s = new Schema :
-	s.setName(d.name) ->
+	s.setName(d.name.toUpperCase()) ->
 	s.table.addAll(d.entities().table()) ->
 	s
 	;

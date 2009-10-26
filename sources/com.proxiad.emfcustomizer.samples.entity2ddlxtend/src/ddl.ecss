@@ -1,5 +1,5 @@
 customize 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src-gen/Transformed.xmi'
 
-#Staple::ADDRESSS {
+#STAPLE::ADDRESSS {
 	name : "ADDRESSES";
 }
