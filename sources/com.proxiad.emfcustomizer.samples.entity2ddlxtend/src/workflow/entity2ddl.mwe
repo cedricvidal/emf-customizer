@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <workflow>
 
-	<property name="model" value="com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/Model.xmi" />
-	<property name="transformedFile" value="src-gen/Transformed.xmi" />
-	<property name="customizedFile" value="src-gen/Customized.xmi" />
+	<property name="model" value="com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/StapleDomain.xmi" />
+	<property name="transformedFile" value="src-gen/StapleDDL-Gen.xmi" />
+	<property name="customizedFile" value="src-gen/StapleDDL-Customized.xmi" />
 	<property name="ecssFile" value="src/ddl.ecss" />
 	<property name="src-gen" value="src-gen" />
 
