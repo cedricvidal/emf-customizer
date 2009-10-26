@@ -1,11 +1,19 @@
 «IMPORT ddl»
 
 «DEFINE main FOR Schema»
-«FILE name+"-ddl.sql"»
+«FILE name+"-ddl.sql"-»
 «EXPAND createTable FOREACH table»
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE createTable FOR Table»
-CREATE TABLE «name»;
+«DEFINE createTable FOR Table-»
+CREATE TABLE «name» («EXPAND createColumn FOREACH this.column SEPARATOR ', '»);
+«ENDDEFINE»
+
+«DEFINE createColumn FOR Column-»
+«name-»
+«ENDDEFINE»
+
+«DEFINE createColumn FOR Table-»
+«name-»
 «ENDDEFINE»
