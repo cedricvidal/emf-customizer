@@ -1,0 +1,11 @@
+«IMPORT ddl»
+
+«DEFINE main FOR Schema»
+«FILE name+"-ddl.sql"»
+«EXPAND createTable FOREACH table»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE createTable FOR Table»
+CREATE TABLE «name»;
+«ENDDEFINE»
