@@ -7,24 +7,26 @@
 	<property name="ecssFile" value="src/ddl.ecss" />
 	<property name="src-gen" value="src-gen" />
 
-	<!-- set up EMF for standalone execution -->
+	<!-- Set up EMF for standalone execution -->
 	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
 		<platformUri value=".."/>
 	</bean>
 
-	<!-- load model and store it in slot 'model' -->
+	<!-- Load model and store it in slot 'model' -->
 	<component class="org.eclipse.emf.mwe.utils.Reader">
 		<uri value="platform:/resource/${model}" />
 		<modelSlot value="model" />
 	</component>
 
-	<!-- check model -->
+	<!-- Check model -->
 	<component class="org.eclipse.xtend.check.CheckComponent">
 		<metaModel id="entity"
 			class="org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel"/>
 		<checkFile value="entity::Checks" />
 		<emfAllChildrenSlot value="model" />
 	</component>
+
+	<!-- Transform Entity model to DDL model -->
 
 	<component class="org.eclipse.xtend.XtendComponent">
 		<metaModel id="ddl" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
@@ -35,10 +37,14 @@
 		<outputSlot value="transformed"/>
 	</component>
 
+	<!-- Save the transformed DDL model -->
+
 	<component class='org.eclipse.emf.mwe.utils.Writer'>
 		<modelSlot value='transformed'/>
 		<uri value='${transformedFile}'/>
 	</component>
+
+	<!-- Customize the DDL -->
 
 	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="..">
 		<registerGeneratedEPackage value="com.proxiad.emfcustomizer.ecss.EcssPackage"/>
@@ -53,6 +59,8 @@
 		<modelSlot value='transformed'/>
 		<uri value='${customizedFile}'/>
 	</component>
+
+	<!-- Generate code -->
 
 	<component class="org.eclipse.xpand2.Generator">
 		<metaModel idRef="ddl"/>
