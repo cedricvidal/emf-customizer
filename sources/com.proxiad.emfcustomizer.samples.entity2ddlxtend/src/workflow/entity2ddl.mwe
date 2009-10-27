@@ -2,8 +2,8 @@
 <workflow>
 
 	<property name="model" value="com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/StapleDomain.xmi" />
-	<property name="transformedFile" value="src-gen/StapleDDL-Gen.xmi" />
-	<property name="customizedFile" value="src-gen/StapleDDL-Customized.xmi" />
+	<property name="transformedFile" value="src-gen/Step1-StapleDDL-Gen.xmi" />
+	<property name="customizedFile" value="src-gen/Step2-StapleDDL-Customized.xmi" />
 	<property name="ecssFile" value="src/StapleDDL.ecss" />
 	<property name="src-gen" value="src-gen" />
 
@@ -82,7 +82,7 @@
 		<metaModel idRef="entity"/>
 		<expand
 			value="template::Entity2Java::main FOR model" />
-		<outlet path="${src-gen}" >
+		<outlet path="${src-gen}/Step3-JavaBeans" >
 			<postprocessor class="org.eclipse.xpand2.output.JavaBeautifier" />
 		</outlet>
 	</component>

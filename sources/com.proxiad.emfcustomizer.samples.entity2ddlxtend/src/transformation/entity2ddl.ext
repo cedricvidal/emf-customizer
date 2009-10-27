@@ -27,8 +27,14 @@ column( Feature f ) :
 
 cached columnType( entity::Datatype d ) :
 	let d2 = new ddl::DataType :
-	d2.setName(d.name.toUpperCase()) ->
+	d2.setName(d.name.columnName()) ->
 	d2
+	;
+
+columnName( String n ) :
+	n == "String" ? "VARCHAR" :
+	(n == "Integer" ? "NUMBER" :
+	n.toUpperCase())
 	;
 
 plural( String s ) :

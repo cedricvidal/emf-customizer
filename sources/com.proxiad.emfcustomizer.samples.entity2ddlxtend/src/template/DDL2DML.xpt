@@ -1,7 +1,7 @@
 «IMPORT ddl»
 
 «DEFINE main FOR Schema»
-«FILE name+"-dml.sql"-»
+«FILE "Step3-"+name+"-dml.sql"-»
 «EXPAND selectAll FOREACH table»
 «ENDFILE»
 «ENDDEFINE»

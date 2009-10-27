@@ -1,7 +1,7 @@
 «IMPORT ddl»
 
 «DEFINE main FOR Schema»
-«FILE name+"-ddl.sql"-»
+«FILE "Step3-"+name+"-ddl.sql"-»
 «EXPAND createTable FOREACH table»
 «ENDFILE»
 «ENDDEFINE»

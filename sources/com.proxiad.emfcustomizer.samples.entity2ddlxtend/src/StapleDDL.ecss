@@ -1,4 +1,4 @@
-customize 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src-gen/StapleDDL-Gen.xmi'
+customize 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src-gen/Step1-StapleDDL-Gen.xmi'
 
 load 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/DDL-Datatypes.xmi'
 
@@ -7,5 +7,5 @@ load 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/D
 }
 
 #STAPLE::RIDERS::name {
-	type = DataTypes::VARCHAR;
+	type = DataTypes::CLOB;
 }

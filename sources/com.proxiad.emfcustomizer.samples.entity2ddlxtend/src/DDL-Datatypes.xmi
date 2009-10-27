@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="ASCII"?>
 <ddl:Schema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl="http://proxiad.com/EMFCustomizer/Samples/DDL/1.0" xsi:schemaLocation="http://proxiad.com/EMFCustomizer/Samples/DDL/1.0 ddl/ddl.ecore" name="DataTypes">
-  <types name="VARCHAR"/>
+  <types name="CLOB"/>
 </ddl:Schema>
