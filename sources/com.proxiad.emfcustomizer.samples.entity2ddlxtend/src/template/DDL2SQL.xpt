@@ -11,9 +11,5 @@ CREATE TABLE «name» («EXPAND createColumn FOREACH this.column SEPARATOR ', '»);
 «ENDDEFINE»
 
 «DEFINE createColumn FOR Column-»
-«name-»
-«ENDDEFINE»
-
-«DEFINE createColumn FOR Table-»
-«name-»
+«name-» «type.name-»
 «ENDDEFINE»

@@ -1,5 +1,11 @@
 customize 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src-gen/StapleDDL-Gen.xmi'
 
+load 'platform:/resource/com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/DDL-Datatypes.xmi'
+
 #STAPLE::ADDRESSS {
 	name : "ADDRESSES";
+}
+
+#STAPLE::RIDERS::name {
+	type = DataTypes::VARCHAR;
 }

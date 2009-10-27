@@ -6,6 +6,7 @@ extension entity::Extensions reexport;
 schema( Domain d ) :
 	let s = new Schema :
 	s.setName(d.name.toUpperCase()) ->
+	s.types.addAll(d.types.typeSelect(Datatype).collect(e|e.columnType())) ->
 	s.table.addAll(d.entities().table()) ->
 	s
 	;
@@ -13,14 +14,21 @@ schema( Domain d ) :
 table( Entity e) :
 	let t = new Table :
 	t.setName(e.name.plural().toUpperCase()) ->
-	t.column.addAll(e.features.column()) ->
+	t.column.addAll(e.features.select(e|{e.type}.typeSelect(Datatype).size > 0).column()) ->
 	t
 	;
 
 column( Feature f ) :
-	let t = new Table :
-	t.setName(f.name) ->
-	t
+	let c = new Column :
+	c.setName(f.name) ->
+	c.setType({f.type}.typeSelect(Datatype).columnType().first()) ->
+	c
+	;
+
+cached columnType( entity::Datatype d ) :
+	let d2 = new ddl::DataType :
+	d2.setName(d.name.toUpperCase()) ->
+	d2
 	;
 
 plural( String s ) :
