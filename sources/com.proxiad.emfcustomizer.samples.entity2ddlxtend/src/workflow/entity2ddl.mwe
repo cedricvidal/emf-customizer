@@ -4,7 +4,7 @@
 	<property name="model" value="com.proxiad.emfcustomizer.samples.entity2ddlxtend/src/StapleDomain.xmi" />
 	<property name="transformedFile" value="src-gen/StapleDDL-Gen.xmi" />
 	<property name="customizedFile" value="src-gen/StapleDDL-Customized.xmi" />
-	<property name="ecssFile" value="src/ddl.ecss" />
+	<property name="ecssFile" value="src/StapleDDL.ecss" />
 	<property name="src-gen" value="src-gen" />
 
 	<!-- Set up EMF for standalone execution -->
