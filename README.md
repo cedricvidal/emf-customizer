@@ -14,6 +14,18 @@ We strongly believe in the advantages of M2M over M2T based MDSD architectures, 
 
 For these reasons, we decided to develop our own answer to this problem.
 
+## Example
+This is a [DDL](http://en.wikipedia.org/wiki/Data_Description_Language) customization scenario. Imagine the `ddl/ddl1.xmi` is an intermediate model in a MDSD toochain (maybe a [PSM](http://en.wikipedia.org/wiki/Platform-specific_model) in [MDA](http://en.wikipedia.org/wiki/Model-driven_architecture) terminology). It is generated from whatever [PIM](http://en.wikipedia.org/wiki/Platform-independent_model) and is supposed to be itself transformed into concrete SQL DDL scripts. Let's suppose you want to customize that intermediate ddl model.
+
+### Overview
+![](doc/emfcss-sample-ddl-overview.png)
+
+### Model code completion
+![](doc/emfcss-sample-ddl-model-introspection.png)
+
+### MetaModel code completion
+![](doc/emfcss-sample-ddl-metamodel-introspection.png)
+
 ## Status
 EMF Customizer is no more a proof of concept but is not yet fully feature complete and should be considered alpha quality software because anything might change anytime (DSL and API). Some design decisions have not yet been finalized.
 
